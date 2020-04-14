@@ -10,7 +10,7 @@ using PortalRandkowy.API.Models;
 
 namespace PortalRandkowy.API.Controllers
 {
-    // http://localhost:5000/api/
+    // http://localhost:5000/
     [ApiController]
     [Route("[controller]")]
     public class ValuesController : ControllerBase
@@ -22,7 +22,7 @@ namespace PortalRandkowy.API.Controllers
             _context = context;
         }
 
-        // GET api/values
+        // GET values
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
@@ -30,7 +30,7 @@ namespace PortalRandkowy.API.Controllers
             return Ok(values);
         }
 
-        // GET api/values/5
+        // GET values/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
@@ -38,7 +38,7 @@ namespace PortalRandkowy.API.Controllers
             return Ok(value);
         }
 
-        // POST api/values
+        // POST values
         [HttpPost]
         public async Task<IActionResult> AddValue([FromBody] Value value)
         {
@@ -47,7 +47,7 @@ namespace PortalRandkowy.API.Controllers
             return Ok(value);
         }
 
-        // PUT api/values/5
+        // PUT values/5
         [HttpPut("{id}")]
         public async Task<IActionResult> EditValue(int id, [FromBody] Value value)
         {
@@ -58,7 +58,7 @@ namespace PortalRandkowy.API.Controllers
              return Ok(data);
         }
 
-        // DELETE api/values/5
+        // DELETE values/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteValue(int id)
         {
