@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { deprecate } from 'util';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -11,13 +13,17 @@ export class NavComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   login(){
-    console.log(this.model);
+    this.authService.login(this.model).subscribe(next => {
+      console.log('Zalogowałeś się do aplikacji');
+    }, error => {
+      console.log('Wystąpił błąd logowania');
+    });
   }
 
 }
