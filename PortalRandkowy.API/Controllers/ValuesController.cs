@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -11,6 +12,7 @@ using PortalRandkowy.API.Models;
 namespace PortalRandkowy.API.Controllers
 {
     // http://localhost:5000/
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class ValuesController : ControllerBase
@@ -31,6 +33,7 @@ namespace PortalRandkowy.API.Controllers
         }
 
         // GET values/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
